@@ -1,0 +1,103 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, the Altera Quartus II License Agreement,
+# the Altera MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Altera and sold by Altera or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 14.1.0 Build 186 12/03/2014 SJ Full Version
+# Date created = 23:49:45  April 20, 2018
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		tbot_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEBA6U23I7
+set_global_assignment -name TOP_LEVEL_ENTITY tbot
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 14.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:49:45  APRIL 20, 2018"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name VERILOG_FILE tbot.v
+set_global_assignment -name VERILOG_FILE stepper.v
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_V11 -to clock
+set_location_assignment PIN_W15 -to m1_led[0]
+set_location_assignment PIN_AA24 -to m1_led[1]
+set_location_assignment PIN_V16 -to m1_led[2]
+set_location_assignment PIN_AD26 -to m1_stepperPins[3]
+set_location_assignment PIN_AA15 -to m1_stepperPins[2]
+set_location_assignment PIN_AC24 -to m1_stepperPins[1]
+set_location_assignment PIN_Y15 -to m1_stepperPins[0]
+set_location_assignment PIN_V15 -to m2_led[0]
+set_location_assignment PIN_AF26 -to m2_led[1]
+set_location_assignment PIN_AE26 -to m2_led[2]
+set_location_assignment PIN_AF27 -to m2_stepperPins[3]
+set_location_assignment PIN_AE25 -to m2_stepperPins[2]
+set_location_assignment PIN_AF28 -to m2_stepperPins[1]
+set_location_assignment PIN_AG28 -to m2_stepperPins[0]
+set_global_assignment -name VERILOG_FILE sewing.v
+set_location_assignment PIN_W24 -to reset
+set_global_assignment -name VERILOG_FILE ClkDivider.v
+set_global_assignment -name VERILOG_FILE machine.v
+set_global_assignment -name VERILOG_FILE signal.v
+set_location_assignment PIN_AH26 -to sig
+set_location_assignment PIN_AH24 -to led
+set_global_assignment -name VERILOG_FILE scan.v
+set_global_assignment -name VERILOG_FILE registor.v
+set_location_assignment PIN_W20 -to m_en
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m1_led[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m1_led[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m1_led[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m1_stepperPins[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m1_stepperPins[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m1_stepperPins[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m1_stepperPins[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m2_led[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m2_led[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m2_led[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m2_stepperPins[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m2_stepperPins[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m2_stepperPins[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to m2_stepperPins[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sig
+set_instance_assignment -name IO_STANDARD "2.5 V" -to led
+set_instance_assignment -name IO_STANDARD "2.5 V" -to clock
+set_global_assignment -name SDC_FILE output_files/SDC2.sdc
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

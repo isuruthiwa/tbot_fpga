@@ -1,0 +1,98 @@
+//module tbot(clock, m1_en, reset,m1_dir, m1_led, m1_stepperPins, m2_en,m2_dir, m2_led, m2_stepperPins);
+module tbot(clock, start,reset,m1_led,m2_led);
+
+input clock, reset,start;
+//wire m1_dir, m2_dir,m1_en,m2_en;
+output [2:0] m1_led;
+output [2:0] m2_led;
+
+wire [3:0] m1_stepperPins;
+
+wire [3:0] m2_stepperPins;
+reg m1_dir, m2_dir,m1_en,m2_en;
+wire left,right,up,down,stitch;
+
+always @(right or left or up or down) begin
+	if (right) begin
+		m1_dir=0;
+		m2_dir=0;
+	end
+	else if (left) begin
+		m1_dir=1;
+		m2_dir=1;
+	end
+	else if (up) begin
+		m1_dir=1;
+		m2_dir=0;
+	end
+	else if (down) begin
+		m1_dir=0;
+		m2_dir=1;
+	end
+//		if (right & up) begin
+//		m1_dir<=0;
+//		m2_dir<=0;
+//		//
+//		m1_dir<=1;
+//		m2_dir<=0;
+//		//
+//	end
+//	else if (right & down) begin
+//		m1_dir<=0;
+//		m2_dir<=0;
+//		//
+//		m1_dir<=0;
+//		m2_dir<=1;
+//		//
+//	end
+//	else if (left & up) begin
+//		m1_dir<=1;
+//		m2_dir<=1;
+//		//
+//		m1_dir<=1;
+//		m2_dir<=0;
+//		//
+//	end
+//	else if (left & down) begin
+//		m1_dir<=1;
+//		m2_dir<=1;
+//		//
+//		m1_dir<=0;
+//		m2_dir<=1;
+//		//
+//	end
+end
+
+
+//motor 1
+stepper s1(.clock(clock),
+				.en(m1_en),
+				.reset(reset),
+				.dir(m1_dir),
+				.led(m1_led),
+				.stepperPins(m1_stepperPins));
+
+				
+//motor 2
+stepper s2(.clock(clock),
+				.en(m2_en),
+				.reset(reset),
+				.dir(m2_dir),
+				.led(m2_led),
+				.stepperPins(m2_stepperPins));
+
+//
+
+
+sewing sew(.clk(clock),
+				.reset(reset),
+				.start(start),
+				.left(left),
+				.right(right),
+				.up(up),
+				.down(down),
+				.stitch(stitch));
+				
+				
+endmodule
+
